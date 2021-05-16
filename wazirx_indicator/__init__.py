@@ -51,13 +51,13 @@ class MyApplication(Gtk.Application):
 
     def change_label(self):
         data = fetch_current_market()
-        # print(data)
-        self.indicator.set_label(str(get_stock_value(data, coin=PRIMARY_STOCK, include_high_low=False)), '')
+        prime_stock_price = get_stock_value(data, coin=PRIMARY_STOCK, include_high_low=False)
+        self.indicator.set_label(prime_stock_price, '')
         has_error = False
         for menu_item in self.menu_item_list:
             stock_name = menu_item.get_label().lower().split(":")[0]
-            print(stock_name)
-            print(stock_name == "")
+            # print(stock_name)
+            # print(stock_name == "")
             if stock_name != "":
                 stock_label = get_stock_value(data, coin=stock_name)
                 menu_item.set_label(stock_label)
@@ -68,7 +68,10 @@ class MyApplication(Gtk.Application):
         if not has_error:
             return True
 
+        temp_menu_item_list = []
         for stock, menu_item in zip(STOCKS.keys(), self.menu_item_list):
             menu_item.set_label(stock.upper())
             menu_item.show_all()
+            temp_menu_item_list.append(menu_item)
+        self.menu_item_list = temp_menu_item_list
         return True

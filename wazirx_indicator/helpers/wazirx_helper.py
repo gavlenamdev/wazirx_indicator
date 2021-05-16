@@ -34,4 +34,4 @@ def get_stock_value(data, coin="doge", currency="inr", include_high_low=True):
         if include_high_low:
             return coin.upper() + ":\t" + ticker["last"] + "  L" + ticker["low"] + "  H" + ticker["high"]
         return coin.upper() + ":  " + ticker["last"]
-    return ""
+    return coin.upper()
