@@ -14,9 +14,6 @@ from .models.files import reformat_favourites, read_favourites, read_primary
 
 
 class MyApplication(Gtk.Application):
-    # __gsignals__ = {
-    #     'update_favourites': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),
-    # }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, application_id="com.gavlenamdev.wazirx_notifier",

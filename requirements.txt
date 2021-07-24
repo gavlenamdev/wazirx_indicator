@@ -1,8 +1,2 @@
-certifi==2020.12.5
-chardet==4.0.0
-idna==2.10
-pycairo==1.20.0
 PyGObject==3.40.1
-PyGObject-stubs==0.0.2
-requests==2.25.1
-urllib3==1.26.4
+requests==2.26.0

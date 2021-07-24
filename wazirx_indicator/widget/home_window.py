@@ -5,7 +5,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 gi.require_version('AppIndicator3', '0.1')
 
-from gi.repository import Gtk
+from gi.repository import Gtk, GdkPixbuf
 
 from .coin_button import CoinButton
 from config import COINS_INDEX_FILE_PATH
