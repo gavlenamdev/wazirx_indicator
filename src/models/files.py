@@ -1,4 +1,4 @@
-from config import FAVOURITE_COINS_FILE_PATH, PRIMARY_COIN_FILE_PATH
+from ..config import FAVOURITE_COINS_FILE_PATH, PRIMARY_COIN_FILE_PATH
 
 
 def write_to_favourites(stock):

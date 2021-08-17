@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="wazirx_indicator">
+	<schema id="com.github.gavlenamdev.wazirx_indicator" path="/com/github/gavlenamdev/wazirx_indicator/">
+	</schema>
+</schemalist>

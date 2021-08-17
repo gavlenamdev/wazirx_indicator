@@ -3,7 +3,7 @@ import os
 
 import requests
 
-from config import COINS_INDEX_FILE_PATH
+from ..config import COINS_INDEX_FILE_PATH
 
 base_url = "https://api.wazirx.com"
 api_version = "v2"
@@ -53,8 +53,11 @@ def get_stocks_list() -> dict:
 
 def write_search_keys():
     data = get_stocks_list()
-    with open(COINS_INDEX_FILE_PATH, "w") as fd:
-        fd.write(json.dumps(data, sort_keys=True, indent=2))
+    with open(COINS_INDEX_FILE_PATH, "w+") as fd:
+        formatted_data = json.dumps(data, sort_keys=True, indent=2)
+        print(formatted_data)
+        fd.write(formatted_data)
+        print("wrote index")
 
 
 # print(write_search_keys())

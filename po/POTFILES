@@ -1,0 +1,7 @@
+data/com.github.gavlenamdev.wazirx_indicator.desktop.in
+data/com.github.gavlenamdev.wazirx_indicator.appdata.xml.in
+data/com.github.gavlenamdev.wazirx_indicator.gschema.xml
+src/window.ui
+src/main.py
+src/window.py
+

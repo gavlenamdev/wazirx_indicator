@@ -2,13 +2,12 @@ import threading
 import gi
 
 gi.require_version('Gtk', '3.0')
-gi.require_version('AppIndicator3', '0.1')
 
 from gi.repository import Gtk
 
 from ..models.files import write_to_primary, reformat_favourites, read_primary, read_favourites
-from wazirx_indicator import get_stock_value, fetch_current_market
-from config import STOCKS, PRIMARY_STOCK
+from ..helpers.wazirx_helper import get_stock_value, fetch_current_market
+from ..config import STOCKS, PRIMARY_STOCK
 
 
 class IndicatorMenu(Gtk.Menu):

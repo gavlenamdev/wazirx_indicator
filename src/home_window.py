@@ -1,23 +1,24 @@
 import json
+import time, threading
 
 import gi
 
 gi.require_version('Gtk', '3.0')
-gi.require_version('AppIndicator3', '0.1')
 
 from gi.repository import Gtk, GdkPixbuf
 
-from .coin_button import CoinButton
-from config import COINS_INDEX_FILE_PATH
-from ..helpers.wazirx_helper import write_search_keys
+from .widget.coin_button import CoinButton
+from .config import COINS_INDEX_FILE_PATH
+from .helpers.wazirx_helper import write_search_keys
 
 
-@Gtk.Template(filename="wazirx_indicator/ui/home_window.glade")
+@Gtk.Template(resource_path='/com/github/gavlenamdev/wazirx_indicator/home_window.ui')
 class HomeWindow(Gtk.Window):
     __gtype_name__ = "homeWindow"
 
     searchResultView: Gtk.ListBox = Gtk.Template.Child()
     searchBar: Gtk.SearchBar = Gtk.Template.Child()
+    spinner: Gtk.Spinner = Gtk.Template.Child()
 
     def __init__(self, updateMenuItemsList=None, **kwargs):
         super().__init__(**kwargs)
@@ -25,9 +26,9 @@ class HomeWindow(Gtk.Window):
 
         # load index data
         self.index_data = {}
-        with open(COINS_INDEX_FILE_PATH) as fd:
-            data = fd.read()
-            self.index_data = json.loads(data)
+        # with open(COINS_INDEX_FILE_PATH) as fd:
+        #     data = fd.read()
+        #     self.index_data = json.loads(data)
 
         self.connect("key-press-event", self.onCtrlF)
 
@@ -59,9 +60,21 @@ class HomeWindow(Gtk.Window):
     def onRefreshButtonClicked(self, widget, **_kwargs):
         print("refresh")
         print(widget)
-        # TODO: change image
+        t = threading.Thread(target=self.sleep_and_stop, args=())
+        self.spinner.start()
+        t.start()
+        # self.spinner.props.active = True
+        # self.spinner.show()
+        # print(self.spinner)
+        #  time.sleep(1000)
         write_search_keys()
-        # TODO: back to same image
+        # self.spinner.stop()
+
+    def sleep_and_stop(self, data = None):
+
+        time.sleep(1);
+        print("I'm done");
+        self.spinner.stop();
 
     def onCtrlF(self, widget, event):
         shortcut = Gtk.accelerator_get_label(event.keyval, event.state)
