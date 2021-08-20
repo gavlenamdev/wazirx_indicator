@@ -12,6 +12,8 @@ sudo apt install gir1.2-appindicator3-0.1
 sudo apt install python3-venv python3-wheel python3-dev python3-gi python3-gi-cairo
 ```
 
+libappindicator3-dev
+
 ###### Mac
 ```
 brew install cairo

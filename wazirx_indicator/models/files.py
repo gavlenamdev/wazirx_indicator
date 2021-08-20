@@ -15,7 +15,7 @@ def read_favourites():
                 if len(d.strip()) > 0:
                     final_list.append(d.strip())
             return final_list
-    except:
+    except Exception:
         return []
 
 

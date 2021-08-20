@@ -1,0 +1,14 @@
+LTC/INR
+shib/inr
+ada/inr
+doge/inr
+zrx/inr
+sc/inr
+eth/inr
+matic/inr
+vet/inr
+trx/inr
+hbar/inr
+ftm/inr
+btc/inr
+wrx/inr

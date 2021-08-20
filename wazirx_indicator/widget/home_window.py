@@ -12,7 +12,7 @@ from config import COINS_INDEX_FILE_PATH
 from ..helpers.wazirx_helper import write_search_keys
 
 
-@Gtk.Template(filename="wazirx_indicator/ui/home_window.glade")
+@Gtk.Template(filename="wazirx_indicator/wazirx_indicator/ui/home_window.glade")
 class HomeWindow(Gtk.Window):
     __gtype_name__ = "homeWindow"
 
